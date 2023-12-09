@@ -14,7 +14,9 @@ public class Adminlocal {
 
 
 
-		System.out.println("hi");
+		System.out.println("today(09/12/23) i have created JLibGUI repository");
+		System.out.println("From this repository work tree, i have to practice everyday and improve my skill");
+		
 		
 
 	}
