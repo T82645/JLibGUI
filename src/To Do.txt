@@ -11,3 +11,7 @@ I always programing in Eclipse IDE. Just i mention that.
 I am on the way creating my project already without database.
 today, a few java swing Jframe classes created and designed with window builder toolkit.
 ============================== x ======================================== x ================================================
+10/12/23
+today i take some rest for the programming due to persoal reason.
+poor day.
+======================== x ============================================ x ==================================================
