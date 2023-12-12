@@ -12,6 +12,22 @@ I am on the way creating my project already without database.
 today, a few java swing Jframe classes created and designed with window builder toolkit.
 ============================== x ======================================== x ================================================
 10/12/23
-today i take some rest for the programming due to persoal reason.
+Today i take some rest for the programming due to persoal reason.
 poor day.
 ======================== x ============================================ x ==================================================
+11/12/23
+Today i learned some basic concept of database management.
+A brief introduction in structured query language.
+Two major language in sql called DDL and DML.
+DDL-Data Definition Language, DML - Data Manipulation Language.
+=====================x =================================x================================x=================================
+12/12/23
+Today I learned how to create and connect to the database with java program
+I installed mysql software to intermediate with java program and server database and local host database.
+mysql is one of the relational database management system.
+The data organized in table format.
+we have the responsibility for creating table structure that should be friendly to access and retrieval of data when user
+interacting with application.
+i am able to understand how to read data in existing local host database. Through only read database none of the row and
+columns are affected.
+=========================x=============================x======================================x===========================
