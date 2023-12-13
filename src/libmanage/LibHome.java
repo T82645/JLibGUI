@@ -95,7 +95,7 @@ public class LibHome extends JFrame {
 		btnNewButton.setBounds(215, 75, 250, 33);
 		getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Change Administrator");
+		JButton btnNewButton_1 = new JButton("New Administrator");
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_1.setBounds(215, 150, 250, 33);
 		getContentPane().add(btnNewButton_1);
@@ -103,13 +103,13 @@ public class LibHome extends JFrame {
 		JButton btnNewButton_3 = new JButton("Contact Us");
 		btnNewButton_3.addActionListener(e -> new ContactUsDialogBox().setVisible(true));
 		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_3.setBounds(179, 243, 132, 39);
+		btnNewButton_3.setBounds(179, 243, 132, 40);
 		getContentPane().add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Feedback");
 		btnNewButton_4.addActionListener(e -> new Comments().setVisible(true));
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_4.setBounds(364, 244, 141, 37);
+		btnNewButton_4.setBounds(364, 243, 141, 40);
 		getContentPane().add(btnNewButton_4);
 		setFont(new Font("Dialog", Font.BOLD, 15));
 		setTitle("ACADEMIC LIBRARY");

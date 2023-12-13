@@ -47,8 +47,8 @@ public class ContactUsDialogBox extends JDialog {
 		JTextArea txtrAddressNo = new JTextArea();
 		txtrAddressNo.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtrAddressNo.setBackground(new Color(128, 128, 255));
-		txtrAddressNo.setText("ADDRESS:                                HOURS:\r\nNo. 210,                                    Monday–Friday : 9am–7pm\r\nDr.Radhakrishnan Street,           Saturday : 9am–3pm\r\nChennai -600021.                     Sunday : Holiday\r\nTel : 00101-279851\r\n\r\nMail Us : academiclib1990@gmail.com \r\nVisit Official Site : http://www.academiclibraraychennai.org ");
-		txtrAddressNo.setBounds(30, 167, 424, 159);
+		txtrAddressNo.setText("ADDRESS:                                HOURS:\r\nNo. 210,                                     Monday–Friday : 9am–7pm\r\nDr.Radhakrishnan Street,        Saturday : 9am–3pm\r\nChennai -600021.                     Sunday : Holiday\r\nTel : 00101-279851\r\n\r\nMail Us : academiclib1990@gmail.com \r\nVisit Official Site : http://www.academiclibraraychennai.org ");
+		txtrAddressNo.setBounds(20, 167, 434, 159);
 		getContentPane().add(txtrAddressNo);
 		
 		JLabel lblNewLabel = new JLabel("Contact us");
