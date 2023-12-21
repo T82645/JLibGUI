@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -30,7 +31,6 @@ public class AdminHome extends JFrame {
 		int a = JOptionPane.showOptionDialog(this,"Are you Sure want to Logout and Leave ?", "Confirmation", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE, null, opt, opt[1]);
 		if(a==JOptionPane.YES_OPTION) {this.dispose();;}
 	}
-
 	/**
 	 * Launch the application.
 	 */
@@ -40,6 +40,11 @@ public class AdminHome extends JFrame {
 				try {
 					AdminHome frame = new AdminHome();
 					frame.setVisible(true);
+					frame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+					frame.addWindowListener(new WindowAdapter() { 
+					public void windowClosing(WindowEvent e ) {
+					  JOptionPane.showMessageDialog(frame, "Please Logout Before Leaving this page", "INFO", JOptionPane.PLAIN_MESSAGE);
+					  }});
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,10 +55,10 @@ public class AdminHome extends JFrame {
 	 * Create the frame.
 	 */
 	public AdminHome() {
+		setResizable(false);
 		setFont(new Font("Dialog", Font.BOLD, 15));
 		setTitle("Admin-Home");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\91812\\Downloads\\library-icon-png-20.jpg"));
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 508, 523);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 128, 255));

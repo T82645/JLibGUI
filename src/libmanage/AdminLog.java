@@ -9,22 +9,28 @@ import java.awt.Toolkit;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Random;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class AdminLog extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
 	private String AdID;
 	private String passcode;
+	private JPasswordField passwordField;
 	
 
 	/**
@@ -48,10 +54,11 @@ public class AdminLog extends JFrame {
 	 * Create the frame.
 	 */
 	public AdminLog() {
+		setResizable(false);
 		setFont(new Font("Dialog", Font.BOLD, 15));
 		setTitle("Administrator Login");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\91812\\Downloads\\library-icon-png-20.jpg"));
-		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+		//setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 502, 403);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 128, 255));
@@ -73,7 +80,7 @@ public class AdminLog extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		textField = new JTextField();
-		textField.addActionListener(e -> this.AdID =textField.getText());
+		textField.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textField.setHorizontalAlignment(SwingConstants.LEFT);
 		textField.setBounds(207, 166, 177, 25);
 		contentPane.add(textField);
@@ -85,19 +92,39 @@ public class AdminLog extends JFrame {
 		lblNewLabel_2.setBounds(98, 213, 99, 25);
 		contentPane.add(lblNewLabel_2);
 		
-		textField_1 = new JTextField();
-		textField_1.addActionListener(e -> this.passcode =textField.getText());
-		textField_1.setBounds(207, 215, 177, 25);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(e -> {
 			try {
-		if(this.AdID.equals(new AdminRegister().id)&&(this.passcode.equals(new AdminRegister().Email))){
-			new AdminHome().setVisible(true);}
+				String username = textField.getText();
+				String passw = passwordField.getText();
+				
+				String urlsql = "jdbc:mysql://localhost:3306/TAM";
+				String usname = "T82645";
+				String pwd = "Tamil@82645";
+				
+				String st = "Select * from log";
+				
+				Connection co = DriverManager.getConnection(urlsql,usname,pwd);
+				
+				Statement stm = co.createStatement();
+				ResultSet rst = stm.executeQuery(st);
+				
+				rst.next();
+				
+				String uname = rst.getString(1);
+				String passwrd = rst.getString(2);
+				
+				if(username.equals(uname)&&(passw.equals(passwrd))) {
+					new AdminHome().setVisible(true);
+					this.dispose();
+				}else {
+					JOptionPane.showMessageDialog(btnNewButton, "Please check Admin ID and password");
+					textField.setText("");
+					passwordField.setText("");	
+				}
+				co.close();
 		}catch(Exception f ) {
-			System.out.println("Please check user id and password ");
+			System.out.println(f.getMessage());
 		}});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton.setBounds(136, 266, 99, 34);
@@ -120,5 +147,10 @@ public class AdminLog extends JFrame {
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_4.setBounds(165, 26, 273, 34);
 		contentPane.add(lblNewLabel_4);
+		
+		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Tahoma", Font.BOLD, 15));
+		passwordField.setBounds(207, 212, 177, 25);
+		contentPane.add(passwordField);
 	}
 }

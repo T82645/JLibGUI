@@ -60,6 +60,7 @@ public class Comments extends JFrame {
 	 * Create the frame.
 	 */
 	public Comments() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\91812\\Downloads\\library-icon-png-20.jpg"));
 		setFont(new Font("Dialog", Font.BOLD, 15));

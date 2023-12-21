@@ -37,6 +37,7 @@ public class ContactUsDialogBox extends JDialog {
 	 * Create the dialog.
 	 */
 	public ContactUsDialogBox() {
+		setResizable(false);
 		getContentPane().setBackground(new Color(128, 128, 255));
 		setFont(new Font("Dialog", Font.BOLD, 15));
 		setTitle("Contact Library");

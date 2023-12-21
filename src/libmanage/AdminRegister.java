@@ -71,6 +71,10 @@ public class AdminRegister extends JFrame {
 	private JTextField textField_8;
 	private JTextField textField_9;
 	
+	String urlid = "jdbc:mysql://localhost:3306/TAM";
+	String usname = "T82645";
+	String passwd = "Tamil@82645";
+	
 	public String getName() {
 		return this.Name;
 	}
@@ -102,7 +106,6 @@ public class AdminRegister extends JFrame {
 		textField_9.setText(j);
 	}
 	
-	
 	/**
 	 * Launch the application.
 	 */
@@ -133,6 +136,7 @@ public class AdminRegister extends JFrame {
 	 * Create the frame.
 	 */
 	public AdminRegister() {
+		setResizable(false);
 		setFont(new Font("Dialog", Font.BOLD, 15));
 		setTitle("Admin Registeration");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\91812\\Downloads\\library-icon-png-20.jpg"));
@@ -164,7 +168,6 @@ public class AdminRegister extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		textField = new JTextField();
-		textField.addActionListener(e ->{this.Name = textField.getText();});
 		textField.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textField.setBounds(194, 165, 175, 23);
 		contentPane.add(textField);
@@ -176,7 +179,6 @@ public class AdminRegister extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		textField_1 = new JTextField();
-		textField_1.addActionListener(e -> this.FatherName = textField_1.getText());
 		textField_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textField_1.setBounds(194, 203, 175, 20);
 		contentPane.add(textField_1);
@@ -195,7 +197,7 @@ public class AdminRegister extends JFrame {
 			this.Gender = "Male";
 		}});
 		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		rdbtnNewRadioButton.setBounds(199, 237, 61, 23);
+		rdbtnNewRadioButton.setBounds(194, 237, 61, 23);
 		contentPane.add(rdbtnNewRadioButton);
 		
 		
@@ -217,7 +219,7 @@ public class AdminRegister extends JFrame {
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.getCalendarButton().setFont(new Font("Tahoma", Font.BOLD, 15));
 		dateChooser.setDateFormatString("dd-MMM-yyyy");
-		dateChooser.setBounds(196, 275, 97, 23);
+		dateChooser.setBounds(194, 275, 97, 23);
 		contentPane.add(dateChooser);
 		
 		JLabel lblNewLabel_7 = new JLabel("E - Mail");
@@ -227,7 +229,6 @@ public class AdminRegister extends JFrame {
 		contentPane.add(lblNewLabel_7);
 		
 		textField_2 = new JTextField();
-		textField_2.addActionListener(e -> this.Email= textField_2.getText());
 		textField_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textField_2.setBounds(194, 310, 175, 20);
 		contentPane.add(textField_2);
@@ -240,11 +241,7 @@ public class AdminRegister extends JFrame {
 		contentPane.add(lblNewLabel_8);
 		
 		textField_3 = new JTextField();
-		textField_3.addActionListener(e ->{ String mob = textField_3.getText();
-		int  no = Integer.parseInt(mob);
-		this.Mobno = no;
-		});
-		textField_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+	    textField_3.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textField_3.setBounds(193, 344, 175, 20);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
@@ -255,7 +252,6 @@ public class AdminRegister extends JFrame {
 		contentPane.add(lblNewLabel_9);
 		
 		textField_4 = new JTextField();
-		textField_4.addActionListener(e -> this.addressLine = textField_4.getText());
 		textField_4.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textField_4.setBounds(541, 166, 156, 20);
 		contentPane.add(textField_4);
@@ -267,7 +263,6 @@ public class AdminRegister extends JFrame {
 		contentPane.add(lblNewLabel_10);
 		
 		textField_5 = new JTextField();
-		textField_5.addActionListener(e -> this.addressLine1 = textField_5.getText());
 		textField_5.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textField_5.setBounds(541, 203, 156, 20);
 		contentPane.add(textField_5);
@@ -280,7 +275,6 @@ public class AdminRegister extends JFrame {
 		contentPane.add(lblNewLabel_11);
 		
 		textField_6 = new JTextField();
-		textField_6.addActionListener(e -> this.City = textField_6.getText());
 		textField_6.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textField_6.setBounds(541, 238, 156, 20);
 		contentPane.add(textField_6);
@@ -293,10 +287,6 @@ public class AdminRegister extends JFrame {
 		contentPane.add(lblNewLabel_12);
 		
 		textField_7 = new JTextField();
-		textField_7.addActionListener(e -> {String post = textField_7.getText();
-		int po = Integer.parseInt(post);
-		this.postalCode = po;
-		});
 		textField_7.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textField_7.setBounds(541, 275, 156, 20);
 		contentPane.add(textField_7);
@@ -309,7 +299,6 @@ public class AdminRegister extends JFrame {
 		contentPane.add(lblNewLabel_13);
 		
 		textField_8 = new JTextField();
-		textField_8.addActionListener(e -> this.Education = textField_8.getText());
 		textField_8.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textField_8.setBounds(541, 310, 156, 20);
 		contentPane.add(textField_8);
@@ -322,22 +311,20 @@ public class AdminRegister extends JFrame {
 		contentPane.add(lblNewLabel_14);
 		
 		textField_9 = new JTextField();
-		textField_2.addActionListener(e -> this.Department = textField_9.getText());
 		textField_9.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textField_9.setBounds(541, 344, 156, 20);
 		contentPane.add(textField_9);
 		textField_9.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Register");
-		Object [] aok ={"OK"};
 		btnNewButton.addActionListener(	e -> {
 			try {
+				
+				
+				
+				
+				
 			 id =this.createAdmin_ID(textField.getText());
-			
-		int c =JOptionPane.showOptionDialog(this, "Your User ID is "+id, "Message", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null, aok, aok[0]);
-			if(JOptionPane.OK_OPTION == c ) { new AdminLog(); 
-				System.exit(0);
-			}
 			}
 		catch(Exception ioe ) {
 			System.out.println("Please enter Valid input");
