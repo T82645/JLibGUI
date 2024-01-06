@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import java.awt.Font;
@@ -11,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Component;
@@ -26,7 +28,11 @@ import java.awt.event.InputMethodListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.sql.DriverManager;
+import java.text.SimpleDateFormat;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.awt.event.InputMethodEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -39,73 +45,101 @@ import java.util.Calendar;
 import javax.swing.SpinnerListModel;
 import com.toedter.calendar.JDayChooser;
 import com.toedter.calendar.JDateChooser;
-
+import java.sql.*;
 public class AdminRegister extends JFrame {
 	
-	private String Name = "";
-	private String FatherName = "";  
-	private String Gender = "";
-	private String Dob ="";
-	public String Email ="";
-	private int Mobno ;
-	private String addressLine; 
-	private String addressLine1;
-	private String City ;
-	private int postalCode ;
-	private String Education = "";
-	private String Department ;
-	String id;
-
-
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private ButtonGroup buttongrp;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
+	private JTextField namefield;
+	private JTextField fathernamefield;
+	private JTextField emailfield;
+	private JDateChooser dateChooser;
+	private JRadioButton malebutton;
+	private JRadioButton femalebutton;
+	private JTextField confirmpasswordfield;
+	private JPasswordField createpasswordfield;
+	
+	private String Id="";
 	
 	String urlid = "jdbc:mysql://localhost:3306/TAM";
 	String usname = "T82645";
 	String passwd = "Tamil@82645";
 	
-	public String getName() {
-		return this.Name;
-	}
-	
-	public void setName(String st) {
-		this.Name = st;
-	}
-	
 	private String createAdmin_ID(String n) {
 		Random rm = new Random();
 		String f1 = n.substring(0, 2);
-		//String f2 = m.substring(9, m.length());
 		int frm = rm.nextInt(1000,9999);
 		return f1+frm;
 	} 
 	
-	private void setReset() {
-		String j = "";
-		textField.setText(j);
-		textField_1.setText(j);
-		buttongrp.clearSelection();
-		textField_2.setText(j);
-		textField_3.setText(j);
-		textField_4.setText(j);
-		textField_5.setText(j);
-		textField_6.setText(j);
-		textField_7.setText(j);
-		textField_8.setText(j);
-		textField_9.setText(j);
+	private void passwcreation(String k) {
+		
+		Pattern p1 = Pattern.compile("[A-Z]+");
+		Pattern p2 = Pattern.compile("[a-z]+");
+		Pattern p3 = Pattern.compile("[0-9]+");
+		Pattern p4 = Pattern.compile("[\\W]+");
+		Pattern p5 = Pattern.compile("[\\s]");
+		
+		Matcher m1 = p1.matcher(k);
+		Matcher m2 = p2.matcher(k);
+		Matcher m3 = p3.matcher(k);
+		Matcher m4 = p4.matcher(k);
+		Matcher m5 = p5.matcher(k);
+		
+		if(k.length()<8||k.length()>12) {
+			JOptionPane.showMessageDialog(createpasswordfield, "* Password length must be minimum of 8 characters and maximum 12 characters"+'\n'
+		+"* Spaces not allowed in Password Field..");
+		}else {
+		int i=0;
+		while(m1.find()) {
+			i++;
+		}
+		int j=0;
+		while(m2.find()) {
+			j++;
+		}
+		int h=0;
+		while(m3.find()) {
+			h++;
+		}
+		int l=0;
+		while(m4.find()) {
+			l++;
+		}
+		int m=0;
+		while(m5.find()) {
+			m++;
+		}
+		if(i==0|j==0|h==0|l==0|m>0) {
+			JOptionPane.showMessageDialog(createpasswordfield, "* Password length must be minimum of 8 characters and maximum 12 characters"+'\n'
+		+"* Password must Contain atleast one UpperCase Letter." +'\n'
+		+"* Password must Contain atleast one LowerCase Letter."+'\n'
+		+"* Password must Contain atleast one Numerical Letter."+'\n'
+		+"* Password must Contain one Special Character."+'\n'
+		+"* Space not allowed in password Field.");
+		}
+		if(k.length()>7&&k.length()<13){
+		if(i>0&&j>0&&h>0&&l>0&&m==0) {
+			 JOptionPane.showMessageDialog(createpasswordfield, "Password is Valid.");
+			 confirmpasswordfield.setEditable(true);
+			 
+		}
+	}
+		}
 	}
 	
+	private void setReset() {
+		String j = "";
+		namefield.setText(j);
+		fathernamefield.setText(j);
+		buttongrp.clearSelection();
+		dateChooser.setCalendar(null);
+		emailfield.setText(j);
+		createpasswordfield.setText(j);
+		confirmpasswordfield.setText(j);
+		
+	}
 	/**
 	 * Launch the application.
 	 */
@@ -140,7 +174,7 @@ public class AdminRegister extends JFrame {
 		setFont(new Font("Dialog", Font.BOLD, 15));
 		setTitle("Admin Registeration");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\91812\\Downloads\\library-icon-png-20.jpg"));
-		setBounds(100, 50, 753, 506);
+		setBounds(100, 50, 570, 560);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 128, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -148,11 +182,19 @@ public class AdminRegister extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel lblNewLabel_2 = new JLabel("ACADEMIC LIBRARY");
+		lblNewLabel_2.setForeground(new Color(0, 255, 255));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_2.setBounds(230, 32, 270, 37);
+		contentPane.add(lblNewLabel_2);
+		
 		
 		JLabel lblNewLabel = new JLabel("ADMINISTRATOR REGISTRATION");
+		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(278, 80, 323, 42);
+		lblNewLabel.setBounds(200, 80, 323, 42);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
@@ -161,192 +203,190 @@ public class AdminRegister extends JFrame {
 		lblNewLabel_1.setBounds(10, 11, 145, 150);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_3 = new JLabel("Name ");
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_3.setBounds(94, 162, 61, 29);
-		contentPane.add(lblNewLabel_3);
+		JLabel namelabel = new JLabel("Name ");
+		namelabel.setForeground(new Color(0, 255, 255));
+		namelabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		namelabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		namelabel.setBounds(135, 162, 61, 29);
+		contentPane.add(namelabel);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textField.setBounds(194, 165, 175, 23);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		namefield = new JTextField();
+		namefield.setFont(new Font("Tahoma", Font.BOLD, 15));
+		namefield.setBounds(220, 165, 175, 25);
+		contentPane.add(namefield);
+		namefield.setColumns(10);
 		
-		JLabel lblNewLabel_4 = new JLabel("Father Name");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_4.setBounds(58, 202, 97, 23);
-		contentPane.add(lblNewLabel_4);
+		JLabel fathernamelabel = new JLabel("Father Name");
+		fathernamelabel.setForeground(new Color(0, 255, 255));
+		fathernamelabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		fathernamelabel.setBounds(95, 202, 97, 23);
+		contentPane.add(fathernamelabel);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textField_1.setBounds(194, 203, 175, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		fathernamefield = new JTextField();
+		fathernamefield.setFont(new Font("Tahoma", Font.BOLD, 15));
+		fathernamefield.setBounds(220, 203, 175, 25);
+		contentPane.add(fathernamefield);
+		fathernamefield.setColumns(10);
 		
-		JLabel lblNewLabel_5 = new JLabel("Gender");
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_5.setBounds(83, 236, 72, 25);
-		contentPane.add(lblNewLabel_5);
+		JLabel genderLabel = new JLabel("Gender");
+		genderLabel.setForeground(new Color(0, 255, 255));
+		genderLabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		genderLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		genderLabel.setBounds(120, 236, 72, 25);
+		contentPane.add(genderLabel);
 		
 		buttongrp = new ButtonGroup();
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Male");
-		buttongrp.add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.addActionListener(e ->{ if(rdbtnNewRadioButton.isEnabled()) {
-			this.Gender = "Male";
-		}});
-		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		rdbtnNewRadioButton.setBounds(194, 237, 61, 23);
-		contentPane.add(rdbtnNewRadioButton);
+		JRadioButton malebutton = new JRadioButton("M");
+		buttongrp.add(malebutton);
+		malebutton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		malebutton.setBounds(220, 237, 40, 23);
+		contentPane.add(malebutton);
 		
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Female");
-		buttongrp.add(rdbtnNewRadioButton_1);
-		rdbtnNewRadioButton_1.addActionListener(e -> {if(rdbtnNewRadioButton_1.isEnabled()) {
-			this.Gender = "Female";}});
+		JRadioButton femalebutton = new JRadioButton("F");
+		buttongrp.add(femalebutton);
+		femalebutton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		femalebutton.setBounds(290, 237, 40, 23);
+		contentPane.add(femalebutton);
 		
-		rdbtnNewRadioButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		rdbtnNewRadioButton_1.setBounds(278, 237, 81, 23);
-		contentPane.add(rdbtnNewRadioButton_1);
 		
-		JLabel lblNewLabel_6 = new JLabel("Date Of Birth");
-		lblNewLabel_6.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_6.setBounds(56, 272, 99, 26);
-		contentPane.add(lblNewLabel_6);
+		JLabel DateofBirthlabel = new JLabel("Date Of Birth");
+		DateofBirthlabel.setForeground(new Color(0, 255, 255));
+		DateofBirthlabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		DateofBirthlabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		DateofBirthlabel.setBounds(95, 272, 99, 26);
+		contentPane.add(DateofBirthlabel);
 		
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.getCalendarButton().setFont(new Font("Tahoma", Font.BOLD, 15));
 		dateChooser.setDateFormatString("dd-MMM-yyyy");
-		dateChooser.setBounds(194, 275, 97, 23);
+		dateChooser.setBounds(220, 275, 97, 25);
 		contentPane.add(dateChooser);
 		
-		JLabel lblNewLabel_7 = new JLabel("E - Mail");
-		lblNewLabel_7.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_7.setBounds(94, 309, 61, 23);
-		contentPane.add(lblNewLabel_7);
+		JLabel emailLabel = new JLabel("E - Mail");
+		emailLabel.setForeground(new Color(0, 255, 255));
+		emailLabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		emailLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		emailLabel.setBounds(130, 309, 61, 23);
+		contentPane.add(emailLabel);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textField_2.setBounds(194, 310, 175, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		emailfield = new JTextField();
+		emailfield.setFont(new Font("Tahoma", Font.BOLD, 15));
+		emailfield.setBounds(220, 310, 175, 25);
+		contentPane.add(emailfield);
+		emailfield.setColumns(10);
 		
-		JLabel lblNewLabel_8 = new JLabel("Mobile (+91)");
-		lblNewLabel_8.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_8.setBounds(54, 343, 101, 23);
-		contentPane.add(lblNewLabel_8);
+		JLabel Createpasslabel = new JLabel("Create Password");
+		Createpasslabel.setForeground(new Color(0, 255, 255));
+		Createpasslabel.setHorizontalAlignment(SwingConstants.TRAILING);
+		Createpasslabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		Createpasslabel.setBounds(60, 343, 132, 23);
+		contentPane.add(Createpasslabel);
 		
-		textField_3 = new JTextField();
-	    textField_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textField_3.setBounds(193, 344, 175, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		createpasswordfield = new JPasswordField(12);
+		createpasswordfield.setFont(new Font("Tahoma", Font.BOLD, 15));
+		createpasswordfield.setBounds(220, 346, 175, 25);
+		contentPane.add(createpasswordfield);
 		
-		JLabel lblNewLabel_9 = new JLabel("Address Line");
-		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_9.setBounds(416, 165, 97, 23);
-		contentPane.add(lblNewLabel_9);
+		JButton validatebutton = new JButton("Validate");
+		validatebutton.addActionListener(e -> this.passwcreation(createpasswordfield.getText()));
+		validatebutton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		validatebutton.setBounds(411, 345, 100, 25);
+		contentPane.add(validatebutton);
 		
-		textField_4 = new JTextField();
-		textField_4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textField_4.setBounds(541, 166, 156, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		JLabel confirmpasslabel = new JLabel("Confirm Password");
+		confirmpasslabel.setForeground(new Color(0, 255, 255));
+		confirmpasslabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		confirmpasslabel.setBounds(55, 385, 145, 23);
+		contentPane.add(confirmpasslabel);
 		
-		JLabel lblNewLabel_10 = new JLabel("Address Line1");
-		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_10.setBounds(416, 200, 106, 27);
-		contentPane.add(lblNewLabel_10);
+		confirmpasswordfield = new JTextField(12);
+		confirmpasswordfield.setEditable(false);
+		confirmpasswordfield.setFont(new Font("Tahoma", Font.BOLD, 15));
+		confirmpasswordfield.setBounds(220, 385, 175, 25);
+		contentPane.add(confirmpasswordfield);
+		confirmpasswordfield.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textField_5.setBounds(541, 203, 156, 20);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
-		
-		JLabel lblNewLabel_11 = new JLabel("City");
-		lblNewLabel_11.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNewLabel_11.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_11.setBounds(474, 237, 48, 23);
-		contentPane.add(lblNewLabel_11);
-		
-		textField_6 = new JTextField();
-		textField_6.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textField_6.setBounds(541, 238, 156, 20);
-		contentPane.add(textField_6);
-		textField_6.setColumns(10);
-		
-		JLabel lblNewLabel_12 = new JLabel("Postal Code");
-		lblNewLabel_12.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNewLabel_12.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_12.setBounds(425, 273, 97, 24);
-		contentPane.add(lblNewLabel_12);
-		
-		textField_7 = new JTextField();
-		textField_7.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textField_7.setBounds(541, 275, 156, 20);
-		contentPane.add(textField_7);
-		textField_7.setColumns(10);
-		
-		JLabel lblNewLabel_13 = new JLabel("Education");
-		lblNewLabel_13.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNewLabel_13.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_13.setBounds(435, 309, 87, 23);
-		contentPane.add(lblNewLabel_13);
-		
-		textField_8 = new JTextField();
-		textField_8.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textField_8.setBounds(541, 310, 156, 20);
-		contentPane.add(textField_8);
-		textField_8.setColumns(10);
-		
-		JLabel lblNewLabel_14 = new JLabel("Department");
-		lblNewLabel_14.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblNewLabel_14.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_14.setBounds(425, 341, 97, 26);
-		contentPane.add(lblNewLabel_14);
-		
-		textField_9 = new JTextField();
-		textField_9.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textField_9.setBounds(541, 344, 156, 20);
-		contentPane.add(textField_9);
-		textField_9.setColumns(10);
-		
-		JButton btnNewButton = new JButton("Register");
-		btnNewButton.addActionListener(	e -> {
-			try {
+		JButton registerbutton = new JButton("Register");
+		registerbutton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		registerbutton.setBounds(120, 445, 115, 35);
+		contentPane.add(registerbutton);
+		registerbutton.addActionListener(e -> {
 				
+				String adminId = this.createAdmin_ID(namefield.getText());
+			    String gend ="";
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/YYYY");
+				String dt = sdf.format(dateChooser.getJCalendar().getDate());
 				
+				if(malebutton.isSelected()) {
+					gend = "Male";
+				}else if(femalebutton.isSelected()) {
+					gend = "Female";
+				}
+				if(namefield.getText().equals("")|fathernamefield.getText().equals("")|!buttongrp.isSelected(buttongrp.getSelection())|
+						dateChooser.getJCalendar().getDate()==null|emailfield.getText().equals("")|createpasswordfield.getText().equals("")|
+						confirmpasswordfield.getText().equals("")) {
+					JOptionPane.showMessageDialog(registerbutton, "All Fields are Mandatory...");
+				}
 				
+				if(createpasswordfield.getText().equals(confirmpasswordfield.getText())) {
+				try {
+						// Create Connection
+						Connection conn = DriverManager.getConnection(urlid, usname, passwd);
+						String qry = "Select count(*) from AdminInfo";
+						Statement st = conn.createStatement();
+						ResultSet rs = st.executeQuery(qry);
+						int j=0;
+						while(rs.next()) {
+							j= rs.getInt(1);
+						}
+					if(j>0) {
+						conn.close();
+						JOptionPane.showMessageDialog(null, "Administrator Already Exists. Click OK to Update Admin");
+						dispose();
+						new RemAdmin().setVisible(true);
+						}else{
+							
+					String qury = "Insert into AdminInfo values(?,?,?,?,?,?,?)";
+					PreparedStatement pstmt = conn.prepareStatement(qury);
+					pstmt.setString(1, namefield.getText());
+					pstmt.setString(2, fathernamefield.getText());
+					pstmt.setString(3, gend);
+					pstmt.setString(4, dt);
+					pstmt.setString(5, emailfield.getText());
+					pstmt.setString(6, adminId);
+					pstmt.setString(7, createpasswordfield.getText());
+					pstmt.executeUpdate();
+					JOptionPane.showMessageDialog(null, "Your Registration is Succesful."+'\n'
+					+"> Please Click 'OK' if you noted it."+'\n'
+							+"Your Admin ID is : "+adminId);
+					
+					String qr = "Insert into registered values(?,?)";
+					PreparedStatement ps = conn.prepareStatement(qr);
+					ps.setString(1, adminId);
+					ps.setString(2, createpasswordfield.getText());
+					ps.executeUpdate();
+					conn.close();
+					dispose();
+					new LibHome().setVisible(true);
+					
+					}
+					}
+					catch(SQLException ioe ) {
+						JOptionPane.showMessageDialog(null, "SQLException");
+					}
+				}});
 				
-				
-			 id =this.createAdmin_ID(textField.getText());
-			}
-		catch(Exception ioe ) {
-			System.out.println("Please enter Valid input");
-		}});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton.setBounds(278, 405, 115, 35);
-		contentPane.add(btnNewButton);
-		
 		JButton btnNewButton_1 = new JButton("Reset");
-		btnNewButton_1.addActionListener(e ->{ this.setReset();
-		dateChooser.setDate(null);
-		});
+		btnNewButton_1.addActionListener(e -> this.setReset());
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1.setBounds(474, 405, 106, 34);
+		btnNewButton_1.setBounds(320, 445, 115, 35);
 		contentPane.add(btnNewButton_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("ACADEMIC LIBRARY");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel_2.setBounds(263, 32, 349, 37);
-		contentPane.add(lblNewLabel_2);
-		
+		JLabel lblNewLabel_15 = new JLabel("");
+		lblNewLabel_15.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_15.setBounds(0, 0, 558, 525);
+		contentPane.add(lblNewLabel_15);
 		
 	}
 }

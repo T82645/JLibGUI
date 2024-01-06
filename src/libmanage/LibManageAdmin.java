@@ -53,9 +53,10 @@ public class LibManageAdmin extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("ACADEMIC LIBRARY");
+		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setBounds(165, 22, 272, 43);
+		lblNewLabel.setBounds(181, 22, 272, 43);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
@@ -65,9 +66,10 @@ public class LibManageAdmin extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("BOOKS MANAGEMENT");
+		lblNewLabel_2.setForeground(new Color(0, 255, 255));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(175, 76, 255, 43);
+		lblNewLabel_2.setBounds(191, 76, 255, 43);
 		contentPane.add(lblNewLabel_2);
 		
 		JButton btnNewButton = new JButton("Add TextBook");
@@ -80,7 +82,7 @@ public class LibManageAdmin extends JFrame {
 		btnNewButton_1.setBounds(291, 182, 210, 36);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Add Magazine");
+		JButton btnNewButton_2 = new JButton("Add Magazines");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_2.setBounds(70, 316, 187, 36);
 		contentPane.add(btnNewButton_2);
@@ -103,6 +105,11 @@ public class LibManageAdmin extends JFrame {
 		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_5.setBounds(70, 182, 187, 36);
 		contentPane.add(btnNewButton_5);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_3.setBounds(0, 0, 532, 431);
+		contentPane.add(lblNewLabel_3);
 	}
 
 }

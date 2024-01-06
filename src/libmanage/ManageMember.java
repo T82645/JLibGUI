@@ -11,6 +11,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class ManageMember extends JFrame {
 
@@ -48,6 +49,7 @@ public class ManageMember extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Member Management");
+		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(65, 24, 199, 32);
@@ -67,6 +69,11 @@ public class ManageMember extends JFrame {
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_2.setBounds(84, 142, 159, 40);
 		contentPane.add(btnNewButton_2);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_1.setBounds(0, 0, 318, 286);
+		contentPane.add(lblNewLabel_1);
 	}
 
 }

@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JButton;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class RemMembership extends JFrame {
 
@@ -53,12 +54,14 @@ public class RemMembership extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Remove Membership");
+		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(73, 23, 252, 35);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
+		lblNewLabel_1.setForeground(new Color(0, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(63, 83, 64, 22);
 		contentPane.add(lblNewLabel_1);
@@ -70,6 +73,7 @@ public class RemMembership extends JFrame {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("D.O.B");
+		lblNewLabel_2.setForeground(new Color(0, 255, 255));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(63, 133, 64, 22);
 		contentPane.add(lblNewLabel_2);
@@ -79,6 +83,7 @@ public class RemMembership extends JFrame {
 		contentPane.add(dateChooser);
 		
 		JLabel lblNewLabel_3 = new JLabel("Mobile");
+		lblNewLabel_3.setForeground(new Color(0, 255, 255));
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_3.setBounds(63, 184, 64, 22);
 		contentPane.add(lblNewLabel_3);
@@ -89,6 +94,7 @@ public class RemMembership extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Join Date");
+		lblNewLabel_4.setForeground(new Color(0, 255, 255));
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_4.setBounds(63, 231, 77, 22);
 		contentPane.add(lblNewLabel_4);
@@ -106,5 +112,10 @@ public class RemMembership extends JFrame {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_1.setBounds(218, 282, 107, 45);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_5.setBounds(0, 0, 386, 356);
+		contentPane.add(lblNewLabel_5);
 	}
 }

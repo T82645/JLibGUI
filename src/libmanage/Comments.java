@@ -75,12 +75,14 @@ public class Comments extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Feedback");
+		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(265, 82, 125, 42);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_2 = new JLabel("Select a topic*");
+		lblNewLabel_2.setForeground(new Color(0, 255, 255));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_2.setBounds(31, 205, 115, 22);
 		contentPane.add(lblNewLabel_2);
@@ -94,6 +96,7 @@ public class Comments extends JFrame {
 		contentPane.add(comboBox);
 		
 		JLabel lblNewLabel_3 = new JLabel("Name*");
+		lblNewLabel_3.setForeground(new Color(0, 255, 255));
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_3.setBounds(31, 266, 70, 22);
 		contentPane.add(lblNewLabel_3);
@@ -106,6 +109,7 @@ public class Comments extends JFrame {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("E-mail*");
+		lblNewLabel_4.setForeground(new Color(0, 255, 255));
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_4.setBounds(280, 208, 70, 17);
 		contentPane.add(lblNewLabel_4);
@@ -118,6 +122,7 @@ public class Comments extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("Library Card ID(Optional)");
+		lblNewLabel_6.setForeground(new Color(0, 255, 255));
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_6.setBounds(280, 266, 204, 22);
 		contentPane.add(lblNewLabel_6);
@@ -130,6 +135,7 @@ public class Comments extends JFrame {
 		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_7 = new JLabel("Your Comments* (200 Characters)");
+		lblNewLabel_7.setForeground(new Color(0, 255, 255));
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_7.setBounds(31, 331, 250, 22);
 		contentPane.add(lblNewLabel_7);
@@ -209,24 +215,27 @@ public class Comments extends JFrame {
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_8 = new JLabel("ACADEMIC LIBRARY");
+		lblNewLabel_8.setForeground(new Color(0, 255, 255));
 		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_8.setBounds(182, 34, 303, 37);
 		contentPane.add(lblNewLabel_8);
 		
-		JTextArea txtrUseTheForm = new JTextArea();
-		txtrUseTheForm.setEditable(false);
-		txtrUseTheForm.setBackground(new Color(128, 128, 255));
-		txtrUseTheForm.setLineWrap(true);
-		txtrUseTheForm.setText("Use the form below to general inquiries, comments that helps our communities.");
-		txtrUseTheForm.setFont(new Font("Tahoma", Font.BOLD, 12));
-		txtrUseTheForm.setWrapStyleWord(true);
-		txtrUseTheForm.setBounds(31, 164, 416, 34);
-		contentPane.add(txtrUseTheForm);
-		
 		JLabel lblNewLabel_1 = new JLabel("* Mandatory Fields");
+		lblNewLabel_1.setForeground(new Color(0, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_1.setBounds(31, 441, 125, 22);
 		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_10 = new JLabel("General inquiries, comments that helps our communities.");
+		lblNewLabel_10.setForeground(new Color(0, 255, 255));
+		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_10.setBounds(31, 172, 453, 22);
+		contentPane.add(lblNewLabel_10);
+		
+		JLabel lblNewLabel_9 = new JLabel("");
+		lblNewLabel_9.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_9.setBounds(0, 0, 515, 580);
+		contentPane.add(lblNewLabel_9);
 	}
 }

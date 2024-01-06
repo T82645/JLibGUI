@@ -16,6 +16,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import com.toedter.calendar.JYearChooser;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class AddStudent extends JFrame {
 
@@ -56,12 +57,14 @@ public class AddStudent extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Add Student");
+		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel.setBounds(169, 21, 121, 23);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
+		lblNewLabel_1.setForeground(new Color(0, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(68, 55, 75, 23);
 		contentPane.add(lblNewLabel_1);
@@ -73,6 +76,7 @@ public class AddStudent extends JFrame {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("D.O.B");
+		lblNewLabel_2.setForeground(new Color(0, 255, 255));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(68, 94, 75, 23);
 		contentPane.add(lblNewLabel_2);
@@ -83,6 +87,7 @@ public class AddStudent extends JFrame {
 		contentPane.add(dateChooser);
 		
 		JLabel lblNewLabel_3 = new JLabel("Course");
+		lblNewLabel_3.setForeground(new Color(0, 255, 255));
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_3.setBounds(68, 135, 75, 23);
 		contentPane.add(lblNewLabel_3);
@@ -95,6 +100,7 @@ public class AddStudent extends JFrame {
 		contentPane.add(comboBox);
 		
 		JLabel lblNewLabel_4 = new JLabel("Stream");
+		lblNewLabel_4.setForeground(new Color(0, 255, 255));
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_4.setBounds(68, 179, 75, 23);
 		contentPane.add(lblNewLabel_4);
@@ -106,12 +112,14 @@ public class AddStudent extends JFrame {
 		contentPane.add(comboBox_1);
 		
 		JLabel lblNewLabel_5 = new JLabel("Batch");
+		lblNewLabel_5.setForeground(new Color(0, 255, 255));
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_5.setBounds(68, 222, 75, 23);
 		contentPane.add(lblNewLabel_5);
 		
 				
 		JLabel lblNewLabel_6 = new JLabel("RollNumber");
+		lblNewLabel_6.setForeground(new Color(0, 255, 255));
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_6.setBounds(52, 267, 90, 23);
 		contentPane.add(lblNewLabel_6);
@@ -142,6 +150,11 @@ public class AddStudent extends JFrame {
 		yearChooser.setBounds(155, 225, 50, 23);
 		contentPane.add(yearChooser);
 		yearChooser.setLayout(null);
+		
+		JLabel lblNewLabel_7 = new JLabel("");
+		lblNewLabel_7.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_7.setBounds(0, 0, 406, 414);
+		contentPane.add(lblNewLabel_7);
 		
 		
 		

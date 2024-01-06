@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 public class ManageStudent extends JFrame {
 
@@ -49,6 +50,7 @@ public class ManageStudent extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Manage Student");
+		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(115, 26, 181, 22);
@@ -63,5 +65,10 @@ public class ManageStudent extends JFrame {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_1.setBounds(90, 153, 220, 37);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_1.setBounds(0, 0, 376, 268);
+		contentPane.add(lblNewLabel_1);
 	}
 }

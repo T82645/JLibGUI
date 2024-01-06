@@ -16,6 +16,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class AddMember extends JFrame {
 
@@ -57,12 +58,14 @@ public class AddMember extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Add Member");
+		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(142, 11, 210, 32);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
+		lblNewLabel_1.setForeground(new Color(0, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(66, 46, 77, 24);
 		contentPane.add(lblNewLabel_1);
@@ -74,6 +77,7 @@ public class AddMember extends JFrame {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("D.O.B");
+		lblNewLabel_2.setForeground(new Color(0, 255, 255));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(66, 86, 77, 24);
 		contentPane.add(lblNewLabel_2);
@@ -84,6 +88,7 @@ public class AddMember extends JFrame {
 		contentPane.add(dateChooser);
 		
 		JLabel lblNewLabel_3 = new JLabel("Gender");
+		lblNewLabel_3.setForeground(new Color(0, 255, 255));
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_3.setBounds(66, 123, 77, 24);
 		contentPane.add(lblNewLabel_3);
@@ -99,6 +104,7 @@ public class AddMember extends JFrame {
 		contentPane.add(rdbtnNewRadioButton_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("Mobile");
+		lblNewLabel_4.setForeground(new Color(0, 255, 255));
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_4.setBounds(66, 160, 88, 24);
 		contentPane.add(lblNewLabel_4);
@@ -110,6 +116,7 @@ public class AddMember extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("Address");
+		lblNewLabel_5.setForeground(new Color(0, 255, 255));
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_5.setBounds(66, 200, 77, 24);
 		contentPane.add(lblNewLabel_5);
@@ -121,6 +128,7 @@ public class AddMember extends JFrame {
 		textField_2.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("Plan");
+		lblNewLabel_6.setForeground(new Color(0, 255, 255));
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_6.setBounds(66, 242, 77, 24);
 		contentPane.add(lblNewLabel_6);
@@ -132,6 +140,7 @@ public class AddMember extends JFrame {
 		contentPane.add(comboBox);
 		
 		JLabel lblNewLabel_7 = new JLabel("Join Date");
+		lblNewLabel_7.setForeground(new Color(0, 255, 255));
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_7.setBounds(66, 285, 77, 24);
 		contentPane.add(lblNewLabel_7);
@@ -150,5 +159,10 @@ public class AddMember extends JFrame {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_1.setBounds(267, 346, 108, 38);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_8.setBounds(0, 0, 462, 417);
+		contentPane.add(lblNewLabel_8);
 	}
 }

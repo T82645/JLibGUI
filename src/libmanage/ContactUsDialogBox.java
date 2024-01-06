@@ -47,12 +47,13 @@ public class ContactUsDialogBox extends JDialog {
 		
 		JTextArea txtrAddressNo = new JTextArea();
 		txtrAddressNo.setFont(new Font("Tahoma", Font.BOLD, 14));
-		txtrAddressNo.setBackground(new Color(128, 128, 255));
+		txtrAddressNo.setBackground(new Color(255, 128, 255));
 		txtrAddressNo.setText("ADDRESS:                                HOURS:\r\nNo. 210,                                     Monday–Friday : 9am–7pm\r\nDr.Radhakrishnan Street,        Saturday : 9am–3pm\r\nChennai -600021.                     Sunday : Holiday\r\nTel : 00101-279851\r\n\r\nMail Us : academiclib1990@gmail.com \r\nVisit Official Site : http://www.academiclibraraychennai.org ");
 		txtrAddressNo.setBounds(20, 167, 434, 159);
 		getContentPane().add(txtrAddressNo);
 		
 		JLabel lblNewLabel = new JLabel("Contact us");
+		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(203, 91, 218, 41);
@@ -65,10 +66,16 @@ public class ContactUsDialogBox extends JDialog {
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("ACADEMIC LIBRARY");
+		lblNewLabel_2.setForeground(new Color(0, 255, 255));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(184, 35, 283, 41);
 		getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_3.setBounds(0, 0, 475, 334);
+		getContentPane().add(lblNewLabel_3);
 
 	}
 }

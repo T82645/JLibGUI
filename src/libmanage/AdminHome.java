@@ -59,7 +59,7 @@ public class AdminHome extends JFrame {
 		setFont(new Font("Dialog", Font.BOLD, 15));
 		setTitle("Admin-Home");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\91812\\Downloads\\library-icon-png-20.jpg"));
-		setBounds(100, 100, 508, 523);
+		setBounds(100, 100, 488, 485);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 128, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,7 +67,20 @@ public class AdminHome extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\library-icon.jpg"));
+		lblNewLabel_1.setBounds(21, 11, 136, 141);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("ACADEMIC LIBRARY");
+		lblNewLabel_2.setForeground(new Color(0, 255, 255));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(170, 37, 262, 30);
+		contentPane.add(lblNewLabel_2);
+		
 		JLabel lblNewLabel = new JLabel("ADMINISTRATOR HOME");
+		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(175, 93, 257, 30);
@@ -75,51 +88,45 @@ public class AdminHome extends JFrame {
 		
 		JButton btnNewButton = new JButton("Books Management");
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton.setBounds(32, 181, 205, 44);
+		btnNewButton.setBounds(21, 168, 205, 44);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Collect Donate");
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1.setBounds(32, 264, 205, 44);
+		btnNewButton_1.setBounds(21, 245, 205, 44);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Update Events");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_2.setBounds(32, 341, 205, 43);
+		btnNewButton_2.setBounds(21, 321, 205, 43);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Manage Students");
 		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_3.setBounds(270, 182, 194, 43);
+		btnNewButton_3.setBounds(270, 169, 194, 43);
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Manage Membership");
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_4.setBounds(270, 265, 194, 43);
+		btnNewButton_4.setBounds(270, 246, 194, 43);
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("Files");
 		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_5.setBounds(270, 341, 194, 42);
+		btnNewButton_5.setBounds(270, 321, 194, 42);
 		contentPane.add(btnNewButton_5);
 
 		
 		JButton btnNewButton_6 = new JButton("Logout");
 		btnNewButton_6.addActionListener(e -> this.lgout());
 		btnNewButton_6.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_6.setBounds(170, 418, 151, 44);
+		btnNewButton_6.setBounds(170, 385, 151, 44);
 		contentPane.add(btnNewButton_6);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\library-icon.jpg"));
-		lblNewLabel_1.setBounds(21, 11, 136, 141);
-		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("ACADEMIC LIBRARY");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(170, 37, 262, 30);
-		contentPane.add(lblNewLabel_2);
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_3.setBounds(0, 0, 478, 450);
+		contentPane.add(lblNewLabel_3);
 		
 		
 	}

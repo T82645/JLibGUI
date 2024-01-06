@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class RenewalMembership extends JFrame {
 
@@ -57,12 +58,14 @@ public class RenewalMembership extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Renewal Membership");
+		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(75, 22, 244, 33);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name");
+		lblNewLabel_1.setForeground(new Color(0, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(64, 79, 66, 25);
 		contentPane.add(lblNewLabel_1);
@@ -74,6 +77,7 @@ public class RenewalMembership extends JFrame {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("D.O.B");
+		lblNewLabel_2.setForeground(new Color(0, 255, 255));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(64, 126, 66, 25);
 		contentPane.add(lblNewLabel_2);
@@ -83,6 +87,7 @@ public class RenewalMembership extends JFrame {
 		contentPane.add(dateChooser);
 		
 		JLabel lblNewLabel_3 = new JLabel("Mobile");
+		lblNewLabel_3.setForeground(new Color(0, 255, 255));
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_3.setBounds(64, 175, 66, 25);
 		contentPane.add(lblNewLabel_3);
@@ -94,6 +99,7 @@ public class RenewalMembership extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Plan");
+		lblNewLabel_4.setForeground(new Color(0, 255, 255));
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_4.setBounds(64, 218, 66, 24);
 		contentPane.add(lblNewLabel_4);
@@ -105,6 +111,7 @@ public class RenewalMembership extends JFrame {
 		contentPane.add(comboBox);
 		
 		JLabel lblNewLabel_5 = new JLabel("Date");
+		lblNewLabel_5.setForeground(new Color(0, 255, 255));
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_5.setBounds(64, 267, 66, 25);
 		contentPane.add(lblNewLabel_5);
@@ -126,5 +133,10 @@ public class RenewalMembership extends JFrame {
 		});
 		btnNewButton_1.setBounds(232, 333, 117, 39);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_6 = new JLabel("");
+		lblNewLabel_6.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_6.setBounds(0, 0, 409, 401);
+		contentPane.add(lblNewLabel_6);
 	}
 }

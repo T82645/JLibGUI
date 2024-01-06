@@ -1,6 +1,7 @@
 package libmanage;
 
 import java.awt.EventQueue;
+import java.sql.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,12 +21,20 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextPane;
 
 public class LibHome extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
+	String urlid = "jdbc:mysql://localhost:3306/TAM";
+	String userid = "T82645";
+	String passw = "Tamil@82645";
 
 	/**
 	 * Launch the application.
@@ -57,9 +66,11 @@ public class LibHome extends JFrame {
 	 * Create the frame.
 	 */
 	public LibHome() {
-		getContentPane().setBackground(new Color(128, 128, 255));
+		getContentPane().setBackground(new Color(255, 255, 255));
 		getContentPane().setLayout(null);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\91812\\Downloads\\library-icon-png-20.jpg"));
+		setResizable(false);
+		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBackground(new Color(255, 255, 255));
@@ -68,53 +79,134 @@ public class LibHome extends JFrame {
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("ACADEMIC LIBRARY");
+		lblNewLabel_1.setForeground(new Color(0, 255, 255));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel_1.setBounds(148, 11, 402, 48);
+		lblNewLabel_1.setBounds(203, 11, 309, 48);
 		getContentPane().add(lblNewLabel_1);
 		
-		JTextArea txtrAbout = new JTextArea();
-		txtrAbout.setBackground(new Color(128, 128, 255));
-		txtrAbout.setFont(new Font("Dialog", Font.BOLD, 12));
-		txtrAbout.setText("About\r\nSince 1990, a well equiped Library for who are Students,Researchers, and other geniune Readers.\r\nWe encourage every student to acquire more knowledge as possible by well study.");
-		txtrAbout.setEditable(false);
-		txtrAbout.setBounds(10, 326, 567, 91);
-		getContentPane().add(txtrAbout);
-		
-		JTextArea txtrQuoteseducation = new JTextArea();
-		txtrQuoteseducation.setBackground(new Color(128, 128, 255));
-		txtrQuoteseducation.setText("\r\nQuotes : \r\n\r\n\"A Room without\r\n Books is a body\r\n without Soul\" .");
-		txtrQuoteseducation.setEditable(false);
-		txtrQuoteseducation.setFont(new Font("Dialog", Font.BOLD, 13));
-		txtrQuoteseducation.setBounds(10, 156, 128, 170);
-		getContentPane().add(txtrQuoteseducation);
-		
 		JButton btnNewButton = new JButton("Administrator Login");
-		btnNewButton.addActionListener(e -> new AdminLog().setVisible(true));
+		btnNewButton.addActionListener(e -> {
+			try {
+				//Connection creation
+				Connection cont = DriverManager.getConnection(urlid, userid, passw);
+				Statement st1 = cont.createStatement();
+				String qry = "Select count(*) from registered";
+				ResultSet rst1 = st1.executeQuery(qry);
+				int c=0;
+				while(rst1.next()) {
+				 c = rst1.getInt(1);
+				}
+				if(c==0) {
+					JOptionPane.showMessageDialog(null, "No Administrator Registered.. Click OK to Register..");
+					dispose();
+					cont.close();
+					new AdminRegister().setVisible(true);
+				}else {
+					dispose();
+					cont.close();
+					new AdminLog().setVisible(true);
+				}
+			}
+			catch(SQLException a) {
+				JOptionPane.showMessageDialog(null, "Connection Error Occured..");
+			}
+			});
+		
+		JTextPane txtpnAboutSince = new JTextPane();
+		txtpnAboutSince.setBackground(new Color(255, 128, 255));
+		txtpnAboutSince.setForeground(new Color(0, 255, 255));
+		txtpnAboutSince.setText("ABOUT\r\nSince 1990, a well equiped Library for who are Students,Researchers, and other geniune Readers.\r\nWe encourage every student to acquire more knowledge as possible by well study.");
+		txtpnAboutSince.setFont(new Font("Tahoma", Font.BOLD, 14));
+		txtpnAboutSince.setBounds(10, 313, 526, 93);
+		getContentPane().add(txtpnAboutSince);
+		
+		JTextPane txtpnQuotes = new JTextPane();
+		txtpnQuotes.setBackground(new Color(255, 128, 255));
+		txtpnQuotes.setText("Quotes :\r\n\" A Room\r\nWithout Books\r\nis A Man\r\nWithout\r\nSoul\" ...");
+		txtpnQuotes.setForeground(new Color(0, 255, 255));
+		txtpnQuotes.setFont(new Font("Tahoma", Font.BOLD, 16));
+		txtpnQuotes.setBounds(10, 176, 141, 126);
+		getContentPane().add(txtpnQuotes);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton.setBounds(215, 75, 250, 33);
+		btnNewButton.setBounds(213, 70, 250, 48);
 		getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("New Administrator");
+		JButton btnNewButton_1 = new JButton("Change Administrator");
+		btnNewButton_1.addActionListener(e -> {
+			try {
+				//Connection creation
+				Connection cnt = DriverManager.getConnection(urlid, userid, passw);
+				Statement st = cnt.createStatement();
+				String qry = "Select count(*) from registered";
+				ResultSet rst = st.executeQuery(qry);
+				int n=0;
+				while(rst.next()) {
+				 n = rst.getInt(1);
+				}
+				if(n==0) {
+					JOptionPane.showMessageDialog(null, "No Administrator found.. Click OK to Register..");
+					dispose();
+					cnt.close();
+					new AdminRegister().setVisible(true);
+				}else {
+					dispose();
+					cnt.close();
+					new RemAdmin().setVisible(true);
+				}
+			}
+			catch(SQLException j) {
+				JOptionPane.showMessageDialog(null, "Connection Error Occured..");
+			}
+		}
+		);
+		
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1.setBounds(215, 150, 250, 33);
+		btnNewButton_1.setBounds(213, 146, 250, 48);
 		getContentPane().add(btnNewButton_1);
 		
-		JButton btnNewButton_3 = new JButton("Contact Us");
-		btnNewButton_3.addActionListener(e -> new ContactUsDialogBox().setVisible(true));
-		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_3.setBounds(179, 243, 132, 40);
-		getContentPane().add(btnNewButton_3);
+		JButton registerbutton = new JButton("Register");
+		registerbutton.addActionListener(e -> {
+			try {
+				Connection cndb = DriverManager.getConnection(urlid, userid, passw);
+				Statement stmt = cndb.createStatement();
+				String qurey = "Select count(*) from registered";
+				ResultSet result = stmt.executeQuery(qurey);
+				int x=0;
+				while(result.next()) {
+				 x = result.getInt(1);
+				}
+				if(x==0) {
+					dispose();
+					cndb.close();
+					new AdminRegister().setVisible(true);
+				}else {
+					Object [] ob = { "OK","Cancel"};
+					int q =JOptionPane.showOptionDialog(null, "Admin already Registered.. "+'\n'+"-> Click 'OK' if you want Change Administrator", "Information", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, ob, ob[0]);
+					if(q==JOptionPane.OK_OPTION) {
+						dispose();
+						cndb.close();
+						new RemAdmin().setVisible(true);
+					}
+				}
+			}
+			catch(SQLException s) {
+				JOptionPane.showMessageDialog(null, "Connection Error Occured...");
+			}
+		});
+		registerbutton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		registerbutton.setBounds(191, 229, 141, 42);
+		getContentPane().add(registerbutton);
 		
-		JButton btnNewButton_4 = new JButton("Feedback");
-		btnNewButton_4.addActionListener(e -> new Comments().setVisible(true));
-		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_4.setBounds(364, 243, 141, 40);
-		getContentPane().add(btnNewButton_4);
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
+		lblNewLabel_2.setBounds(0, 0, 588, 417);
+		getContentPane().add(lblNewLabel_2);
 		setFont(new Font("Dialog", Font.BOLD, 15));
 		setTitle("ACADEMIC LIBRARY");
-		setBounds(100, 100, 589, 452);
+		setBounds(100, 100, 558, 452);
 		
 		
 	}
 }
+
