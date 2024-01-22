@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
-public class LibManageAdmin extends JFrame {
+public class BooksManage extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -27,7 +27,7 @@ public class LibManageAdmin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LibManageAdmin frame = new LibManageAdmin();
+					BooksManage frame = new BooksManage();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,11 +39,11 @@ public class LibManageAdmin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LibManageAdmin() {
+	public BooksManage() {
 		setFont(new Font("Dialog", Font.BOLD, 15));
 		setTitle("Books Management");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\91812\\Downloads\\library-icon-png-20.jpg"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 544, 466);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 128, 255));
@@ -94,10 +94,6 @@ public class LibManageAdmin extends JFrame {
 		
 		JButton btnNewButton_4 = new JButton("Manage Shelf");
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnNewButton_4.setBounds(291, 316, 210, 36);
 		contentPane.add(btnNewButton_4);
 		

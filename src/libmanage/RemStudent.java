@@ -44,7 +44,7 @@ public class RemStudent extends JFrame {
 		setTitle("Remove Student");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\91812\\Downloads\\library-icon-png-20.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 387, 279);
+		setBounds(100, 100, 387, 282);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 128, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -93,7 +93,7 @@ public class RemStudent extends JFrame {
 		
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\91812\\Downloads\\Lib1200x800_blurred.jpg"));
-		lblNewLabel_3.setBounds(0, 0, 375, 244);
+		lblNewLabel_3.setBounds(0, 0, 375, 247);
 		contentPane.add(lblNewLabel_3);
 	}
 

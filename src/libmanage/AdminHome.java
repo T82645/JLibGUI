@@ -76,17 +76,18 @@ public class AdminHome extends JFrame {
 		lblNewLabel_2.setForeground(new Color(0, 255, 255));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(170, 37, 262, 30);
+		lblNewLabel_2.setBounds(170, 37, 262, 45);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel = new JLabel("ADMINISTRATOR HOME");
 		lblNewLabel.setForeground(new Color(0, 255, 255));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setBounds(175, 93, 257, 30);
+		lblNewLabel.setBounds(175, 93, 257, 45);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Books Management");
+		btnNewButton.addActionListener(e -> new BooksManage().setVisible(true));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton.setBounds(21, 168, 205, 44);
 		contentPane.add(btnNewButton);
@@ -101,10 +102,10 @@ public class AdminHome extends JFrame {
 		btnNewButton_2.setBounds(21, 321, 205, 43);
 		contentPane.add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("Manage Students");
-		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_3.setBounds(270, 169, 194, 43);
-		contentPane.add(btnNewButton_3);
+		JButton managestudbutton = new JButton("Manage Students");
+		managestudbutton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		managestudbutton.setBounds(270, 169, 194, 43);
+		contentPane.add(managestudbutton);
 		
 		JButton btnNewButton_4 = new JButton("Manage Membership");
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 15));
