@@ -81,7 +81,7 @@ public class ManageStudent_Info extends JFrame {
 	 */
 	public ManageStudent_Info() {
 		setResizable(false);
-		setTitle("Add Student");
+		setTitle("Manage Student Information");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\91812\\Downloads\\library-icon-png-20.jpg"));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 50, 837, 602);

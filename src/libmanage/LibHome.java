@@ -98,10 +98,13 @@ public class LibHome extends JFrame {
 				 c = rst1.getInt(1);
 				}
 				if(c==0) {
-					JOptionPane.showMessageDialog(null, "No Administrator Registered.. Click OK to Register..");
-					dispose();
-					cont.close();
-					new AdminRegister().setVisible(true);
+					Object [] op = {"Yes","Cancel"};
+					int t = JOptionPane.showConfirmDialog(null, "No Administrator Registered.. Click 'Yes' to Register..");
+					if(t==JOptionPane.YES_OPTION) {
+						dispose();
+						cont.close();
+						new AdminRegister().setVisible(true);
+					}
 				}else {
 					dispose();
 					cont.close();
@@ -145,10 +148,13 @@ public class LibHome extends JFrame {
 				 n = rst.getInt(1);
 				}
 				if(n==0) {
-					JOptionPane.showMessageDialog(null, "No Administrator found.. Click OK to Register..");
+					Object [] sd = {"Yes","No","Cancel"};
+					int vv = JOptionPane.showConfirmDialog(null, "No Administrator found.. Click OK to Register..");
+					if(vv==JOptionPane.YES_OPTION) {
 					dispose();
 					cnt.close();
 					new AdminRegister().setVisible(true);
+					}
 				}else {
 					dispose();
 					cnt.close();
@@ -195,7 +201,7 @@ public class LibHome extends JFrame {
 			}
 		});
 		registerbutton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		registerbutton.setBounds(191, 229, 141, 42);
+		registerbutton.setBounds(213, 229, 250, 48);
 		getContentPane().add(registerbutton);
 		
 		JLabel lblNewLabel_2 = new JLabel("");

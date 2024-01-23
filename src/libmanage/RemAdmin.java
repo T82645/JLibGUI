@@ -119,7 +119,6 @@ public class RemAdmin extends JFrame {
 					String qr1 = "Select * from registered";
 					Statement st1 = cnnt.createStatement();
 					ResultSet re = st1.executeQuery(qr1);
-					System.out.println(a+5);
 					String admId="";
 					String pwd="";
 					while(re.next()) {

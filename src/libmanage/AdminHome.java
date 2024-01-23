@@ -99,29 +99,30 @@ public class AdminHome extends JFrame {
 		
 		JButton btnNewButton_2 = new JButton("Update Events");
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_2.setBounds(21, 321, 205, 43);
+		btnNewButton_2.setBounds(21, 321, 205, 44);
 		contentPane.add(btnNewButton_2);
 		
 		JButton managestudbutton = new JButton("Manage Students");
+		managestudbutton.addActionListener(e -> new ManageStudent_Info().setVisible(true));
 		managestudbutton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		managestudbutton.setBounds(270, 169, 194, 43);
+		managestudbutton.setBounds(270, 168, 194, 44);
 		contentPane.add(managestudbutton);
 		
 		JButton btnNewButton_4 = new JButton("Manage Membership");
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_4.setBounds(270, 246, 194, 43);
+		btnNewButton_4.setBounds(270, 245, 194, 44);
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("Files");
 		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_5.setBounds(270, 321, 194, 42);
+		btnNewButton_5.setBounds(270, 321, 194, 44);
 		contentPane.add(btnNewButton_5);
 
 		
 		JButton btnNewButton_6 = new JButton("Logout");
 		btnNewButton_6.addActionListener(e -> this.lgout());
 		btnNewButton_6.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_6.setBounds(170, 385, 151, 44);
+		btnNewButton_6.setBounds(170, 385, 150, 44);
 		contentPane.add(btnNewButton_6);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
