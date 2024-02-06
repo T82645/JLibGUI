@@ -652,7 +652,7 @@ public class ManageStudent_Info extends JFrame {
 		searchfield.setColumns(10);
 
 		JLabel lblNewLabel_8 = new JLabel("Search");
-		lblNewLabel_8.setBounds(401, 28, 58, 23);
+		lblNewLabel_8.setBounds(400, 28, 58, 23);
 		lblNewLabel_8.setForeground(new Color(0, 255, 255));
 		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 15));
 		contentPane.add(lblNewLabel_8);
