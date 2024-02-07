@@ -79,7 +79,7 @@ public class LibHome extends JFrame {
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("ACADEMIC LIBRARY");
-		lblNewLabel_1.setForeground(new Color(0, 255, 255));
+		lblNewLabel_1.setForeground(new Color(0, 255, 0));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_1.setBounds(203, 11, 309, 48);

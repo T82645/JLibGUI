@@ -66,7 +66,7 @@ public class AdminLog extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("ADMINISTRATOR LOGIN");
-		lblNewLabel.setForeground(new Color(0, 255, 255));
+		lblNewLabel.setForeground(new Color(0, 255, 0));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(186, 84, 247, 43);
@@ -157,7 +157,7 @@ public class AdminLog extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("ACADEMIC LIBRARY");
-		lblNewLabel_4.setForeground(new Color(0, 255, 255));
+		lblNewLabel_4.setForeground(new Color(0, 255, 0));
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_4.setBounds(191, 28, 231, 34);

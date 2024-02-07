@@ -93,7 +93,7 @@ public class RegAdmin extends JDialog {
 		contentPanel.add(textPane_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("ACADEMIC LIBRARY");
-		lblNewLabel_3.setForeground(new Color(0, 255, 255));
+		lblNewLabel_3.setForeground(new Color(0, 255, 0));
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setBounds(63, 17, 260, 30);

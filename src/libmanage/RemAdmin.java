@@ -61,14 +61,14 @@ public class RemAdmin extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel_3 = new JLabel("ACADEMIC LIBRARY");
-		lblNewLabel_3.setForeground(new Color(0, 255, 255));
+		lblNewLabel_3.setForeground(new Color(0, 255, 0));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_3.setBounds(59, 28, 280, 28);
 		getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel = new JLabel("REMOVE ADMINISTRATOR");
-		lblNewLabel.setForeground(new Color(0, 255, 255));
+		lblNewLabel.setForeground(new Color(0, 255, 0));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(59, 67, 280, 31);

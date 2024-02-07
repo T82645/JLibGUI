@@ -73,14 +73,14 @@ public class AdminHome extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("ACADEMIC LIBRARY");
-		lblNewLabel_2.setForeground(new Color(0, 255, 255));
+		lblNewLabel_2.setForeground(new Color(0, 255, 0));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(170, 37, 262, 45);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel = new JLabel("ADMINISTRATOR HOME");
-		lblNewLabel.setForeground(new Color(0, 255, 255));
+		lblNewLabel.setForeground(new Color(0, 255, 0));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setBounds(175, 93, 257, 45);

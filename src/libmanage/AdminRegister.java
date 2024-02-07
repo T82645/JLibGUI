@@ -183,7 +183,7 @@ public class AdminRegister extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("ACADEMIC LIBRARY");
-		lblNewLabel_2.setForeground(new Color(0, 255, 255));
+		lblNewLabel_2.setForeground(new Color(0, 255, 0));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_2.setBounds(230, 32, 270, 37);
@@ -191,7 +191,7 @@ public class AdminRegister extends JFrame {
 		
 		
 		JLabel lblNewLabel = new JLabel("ADMINISTRATOR REGISTRATION");
-		lblNewLabel.setForeground(new Color(0, 255, 255));
+		lblNewLabel.setForeground(new Color(0, 255, 0));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(200, 80, 323, 42);
